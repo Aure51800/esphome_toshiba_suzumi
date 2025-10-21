@@ -14,7 +14,7 @@ constexpr const char* CUSTOM_PWR_LEVEL_50 = "50 %";
 constexpr const char* CUSTOM_PWR_LEVEL_75 = "75 %";
 constexpr const char* CUSTOM_PWR_LEVEL_100 = "100 %";
 
-constexpr const char* SPECIAL_MODE_STANDARD = "Standard";
+constexpr const char* SPECIAL_MODE_NONE = "None";
 constexpr const char* SPECIAL_MODE_HI_POWER = "Hi POWER";
 constexpr const char* SPECIAL_MODE_ECO = "ECO";
 // Special modes described at:
@@ -44,7 +44,7 @@ enum class STATE { ON = 48, OFF = 49 };
 enum class PWR_LEVEL { PCT_50 = 50, PCT_75 = 75, PCT_100 = 100 };
 
 enum SPECIAL_MODE {
-  STANDARD = 0,
+  NONE = 0,
   HI_POWER = 1,
   ECO = 3,
   FIREPLACE_1 = 32,
