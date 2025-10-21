@@ -52,9 +52,9 @@ if version.parse(ESPHOME_VERSION) >= version.parse("2025.5.0"):
             # Keep it for backward compatibility
             cv.Optional(CONF_SPECIAL_MODE): select.select_schema(ToshibaSpecialModeSelect).extend({
                 cv.GenerateID(): cv.declare_id(ToshibaSpecialModeSelect),
-                cv.Required(CONF_SPECIAL_MODE_MODES): cv.ensure_list(cv.one_of("Standard","Hi POWER","ECO","Fireplace 1","Fireplace 2","8 degrees","Silent#1","Silent#2","Sleep","Floor","Comfort"))
+                cv.Required(CONF_SPECIAL_MODE_MODES): cv.ensure_list(cv.one_of("None","Hi POWER","ECO","Fireplace 1","Fireplace 2","8 degrees","Silent#1","Silent#2","Sleep","Floor","Comfort"))
             }),
-            cv.Optional(CONF_SUPPORTED_PRESETS): cv.ensure_list(cv.one_of("Standard","Hi POWER","ECO","Fireplace 1","Fireplace 2","8 degrees","Silent#1","Silent#2","Sleep","Floor","Comfort")),
+            cv.Optional(CONF_SUPPORTED_PRESETS): cv.ensure_list(cv.one_of("None","Hi POWER","ECO","Fireplace 1","Fireplace 2","8 degrees","Silent#1","Silent#2","Sleep","Floor","Comfort")),
             cv.Optional(MIN_TEMP): cv.int_,
         }
     ).extend(uart.UART_DEVICE_SCHEMA).extend(cv.polling_component_schema("120s"))    
@@ -78,9 +78,9 @@ else:
             # Keep it for backward compatibility
             cv.Optional(CONF_SPECIAL_MODE): select.SELECT_SCHEMA.extend({
                 cv.GenerateID(): cv.declare_id(ToshibaSpecialModeSelect),
-                cv.Required(CONF_SPECIAL_MODE_MODES): cv.ensure_list(cv.one_of("Standard","Hi POWER","ECO","Fireplace 1","Fireplace 2","8 degrees","Silent#1","Silent#2","Sleep","Floor","Comfort"))
+                cv.Required(CONF_SPECIAL_MODE_MODES): cv.ensure_list(cv.one_of("None","Hi POWER","ECO","Fireplace 1","Fireplace 2","8 degrees","Silent#1","Silent#2","Sleep","Floor","Comfort"))
             }),
-            cv.Optional(CONF_SUPPORTED_PRESETS): cv.ensure_list(cv.one_of("Standard","Hi POWER","ECO","Fireplace 1","Fireplace 2","8 degrees","Silent#1","Silent#2","Sleep","Floor","Comfort")),
+            cv.Optional(CONF_SUPPORTED_PRESETS): cv.ensure_list(cv.one_of("None","Hi POWER","ECO","Fireplace 1","Fireplace 2","8 degrees","Silent#1","Silent#2","Sleep","Floor","Comfort")),
             cv.Optional(MIN_TEMP): cv.int_,
         }
     ).extend(uart.UART_DEVICE_SCHEMA).extend(cv.polling_component_schema("120s"))
