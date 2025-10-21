@@ -380,7 +380,7 @@ void ToshibaClimateUart::control(const climate::ClimateCall &call) {
     bool special_mode_changed = false;
     if (newTargetTemp >= MIN_TEMP_STANDARD && this->special_mode_ == SPECIAL_MODE::EIGHT_DEG) {
       // if target temp is above MIN_TEMP_STANDARD and special mode is EIGHT_DEG, change to Standard mode
-      this->special_mode_ = SPECIAL_MODE::STANDARD;
+      this->special_mode_ = SPECIAL_MODE::NONE;
       special_mode_changed = true;
       ESP_LOGD(TAG, "Changing to Standard Mode");
     } else if (newTargetTemp < MIN_TEMP_STANDARD && this->special_mode_ != SPECIAL_MODE::EIGHT_DEG) {
@@ -538,7 +538,7 @@ ClimateTraits ToshibaClimateUart::traits() {
     // Presets are automatically enabled when adding supported presets
     for (const auto &preset_string : supported_presets_) {
       auto climate_preset = StringToClimatePreset(preset_string);
-      if (climate_preset != climate::CLIMATE_PRESET_NONE || preset_string == SPECIAL_MODE_STANDARD) {
+      if (climate_preset != climate::CLIMATE_PRESET_STANDARD || preset_string == SPECIAL_MODE_NONE) {
         // Use standard presets for mapped modes
         traits.add_supported_preset(climate_preset);
       } else {
