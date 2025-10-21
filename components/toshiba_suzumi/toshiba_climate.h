@@ -66,7 +66,7 @@ class ToshibaClimateUart : public PollingComponent, public climate::Climate, pub
   uint32_t last_command_timestamp_ = 0;
   uint32_t last_rx_char_timestamp_ = 0;
   STATE power_state_ = STATE::OFF;
-  optional<SPECIAL_MODE> special_mode_ = SPECIAL_MODE::STANDARD;
+  optional<SPECIAL_MODE> special_mode_ = SPECIAL_MODE::NONE;
   select::Select *pwr_select_ = nullptr;
   sensor::Sensor *outdoor_temp_sensor_ = nullptr;
   bool horizontal_swing_ = false;
