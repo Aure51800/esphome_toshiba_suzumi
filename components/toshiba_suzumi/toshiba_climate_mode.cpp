@@ -132,8 +132,8 @@ const LogString *climate_state_to_string(STATE mode) {
 }
 
 const optional<SPECIAL_MODE> PresetToSpecialMode(const std::string &preset) {
-  if (str_equals_case_insensitive(preset, SPECIAL_MODE_STANDARD)) {
-    return SPECIAL_MODE::STANDARD;
+  if (str_equals_case_insensitive(preset, SPECIAL_MODE_NONE)) {
+    return SPECIAL_MODE::NONE;
   } else if (str_equals_case_insensitive(preset, SPECIAL_MODE_HI_POWER)) {
     return SPECIAL_MODE::HI_POWER;
   } else if (str_equals_case_insensitive(preset, SPECIAL_MODE_ECO)) {
@@ -161,8 +161,8 @@ const optional<SPECIAL_MODE> PresetToSpecialMode(const std::string &preset) {
 
 const std::string SpecialModeToPreset(SPECIAL_MODE mode) {
   switch (mode) {
-    case SPECIAL_MODE::STANDARD:
-      return SPECIAL_MODE_STANDARD;
+    case SPECIAL_MODE::NONE:
+      return SPECIAL_MODE_NONE;
     case SPECIAL_MODE::HI_POWER:
       return SPECIAL_MODE_HI_POWER;
     case SPECIAL_MODE::ECO:
@@ -184,12 +184,12 @@ const std::string SpecialModeToPreset(SPECIAL_MODE mode) {
     case SPECIAL_MODE::COMFORT:
       return SPECIAL_MODE_COMFORT;
     default:
-      return SPECIAL_MODE_STANDARD;
+      return SPECIAL_MODE_NONE;
   }
 }
 
 const climate::ClimatePreset StringToClimatePreset(const std::string &preset) {
-  if (str_equals_case_insensitive(preset, SPECIAL_MODE_STANDARD)) {
+  if (str_equals_case_insensitive(preset, SPECIAL_MODE_NONE)) {
     return climate::CLIMATE_PRESET_NONE;
   } else if (str_equals_case_insensitive(preset, SPECIAL_MODE_ECO)) {
     return climate::CLIMATE_PRESET_ECO;
@@ -208,7 +208,7 @@ const climate::ClimatePreset StringToClimatePreset(const std::string &preset) {
 const std::string ClimatePresetToString(climate::ClimatePreset preset) {
   switch (preset) {
     case climate::CLIMATE_PRESET_NONE:
-      return SPECIAL_MODE_STANDARD;
+      return SPECIAL_MODE_NONE;
     case climate::CLIMATE_PRESET_ECO:
       return SPECIAL_MODE_ECO;
     case climate::CLIMATE_PRESET_BOOST:
@@ -218,7 +218,7 @@ const std::string ClimatePresetToString(climate::ClimatePreset preset) {
     case climate::CLIMATE_PRESET_COMFORT:
       return SPECIAL_MODE_COMFORT;
     default:
-      return SPECIAL_MODE_STANDARD;
+      return SPECIAL_MODE_NONE;
   }
 }
 
@@ -229,7 +229,7 @@ const optional<SPECIAL_MODE> ClimatePresetToSpecialMode(climate::ClimatePreset p
 
 const optional<climate::ClimatePreset> SpecialModeToClimatePreset(SPECIAL_MODE mode) {
   switch (mode) {
-    case SPECIAL_MODE::STANDARD:
+    case SPECIAL_MODE::NONE:
       return climate::CLIMATE_PRESET_NONE;
     case SPECIAL_MODE::ECO:
       return climate::CLIMATE_PRESET_ECO;
